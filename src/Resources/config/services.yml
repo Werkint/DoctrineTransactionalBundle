@@ -1,1 +1,20 @@
 services:
+  werkint_doctrine_transactional.metadata.annotation_driver:
+    class: Werkint\Bundle\DoctrineTransactionalBundle\Service\Metadata\AnnotationDriver
+    arguments:
+      - @annotations.reader
+  werkint_doctrine_transactional.metadata.metadata_factory:
+    class: Metadata\MetadataFactory
+    arguments:
+      - @werkint_doctrine_transactional.metadata.annotation_driver
+  werkint_doctrine_transactional.pointcut.transactionalpointcut:
+    class: Werkint\Bundle\DoctrineTransactionalBundle\Service\Pointcut\TransactionalPointcut
+    arguments:
+      - @werkint_doctrine_transactional.metadata.metadata_factory
+    tags:
+      - { name: jms_aop.pointcut, interceptor: werkint_doctrine_transactional.pointcut.pointcutinterceptor }
+  werkint_doctrine_transactional.pointcut.pointcutinterceptor:
+    class: Werkint\Bundle\DoctrineTransactionalBundle\Service\Pointcut\PointcutInterceptor
+    arguments:
+      - @werkint_doctrine_transactional.metadata.metadata_factory
+      - @doctrine

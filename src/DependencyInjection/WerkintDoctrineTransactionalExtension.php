@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 /**
  * Extension for WerkintDoctrineTransactionalBundle.
  */
-class WerkintQueueExtension extends Extension
+class WerkintDoctrineTransactionalExtension extends Extension
 {
     /**
      * {@inheritdoc}
