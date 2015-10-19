@@ -1,0 +1,29 @@
+{
+    "name":              "werkint/doctrine-transactional-bundle",
+    "description":       "Transactions support for DBAL",
+    "license":           "GPL-3.0+",
+    "authors":           [
+        {
+            "name":  "Bogdan Yurov",
+            "email": "bogdan@yurov.me"
+        }
+    ],
+    "require":           {
+        "symfony/framework-bundle":       "*",
+        "werkint/framework-extra-bundle": "*",
+
+        "php":                            ">=5.5"
+    },
+    "autoload":          {
+        "psr-4": {
+            "Werkint\\Bundle\\DoctrineTransactionalBundle\\": "src/"
+        }
+    },
+    "extra":             {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+
+    "minimum-stability": "dev"
+}
